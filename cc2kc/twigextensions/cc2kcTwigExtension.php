@@ -30,7 +30,7 @@ class cc2kcTwigExtension extends \Twig_Extension
 	{
 		if (is_string($var) && strlen($var))
 		{
-			$var = preg_replace('/(^|[a-z])([A-Z])/e', 'strtolower(strlen("\\1") ? "\\1-\\2" : "\\2")', $var);
+			$var = preg_replace_callback('/(^|[a-z])([A-Z])/', function($m) {return strtolower(strlen("$m[1]") ? "$m[1]-$m[2]" : $m[2]);}, $var);
 		}
 
 		return $var;
