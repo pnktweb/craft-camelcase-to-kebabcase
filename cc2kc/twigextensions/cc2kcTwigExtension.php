@@ -1,5 +1,4 @@
 <?php
-
 namespace Craft;
 
 class cc2kcTwigExtension extends \Twig_Extension
@@ -30,7 +29,10 @@ class cc2kcTwigExtension extends \Twig_Extension
 	{
 		if (is_string($var) && strlen($var))
 		{
-			$var = preg_replace('/(^|[a-z])([A-Z])/e', 'strtolower(strlen("\\1") ? "\\1-\\2" : "\\2")', $var);
+			$var = preg_replace_callback('/(^|[a-z])([A-Z])/', function($matches) {
+				return strtolower(strlen("\\1") ? "$matches[1]-$matches[2]" : "\\2");
+			},
+			$var);
 		}
 
 		return $var;
