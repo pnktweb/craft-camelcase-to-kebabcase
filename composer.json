@@ -1,0 +1,16 @@
+{
+	"name": "pnktweb/craft-camelcase-to-kebabcase",
+	"description": "Adds `cc2kc` filter and function to Twig",
+	"keywords": ["craft", "craftcms", "craft-cms", "camelcase", "kebabcase"],
+	"homepage": "https://github.com/pnktweb/craft-camelcase-to-kebabcase",
+	"require": {
+		"php": "^7.0"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Daniel Skogly",
+			"role": "Developer"
+		}
+	]
+}
